@@ -1,0 +1,30 @@
+# APP CONFIGURATION (INTERNAL)
+app:
+  base-url: /api/v1/users
+  security:
+    secret-rotate-interval-millis: "${SECRET_ROTATE_INTERVAL_MILLIS:86400000}" # 1 day
+    private-key:
+      path: "${JWT_PRIVATE_KEY_PATH:C:\\1WORKSPACE\\PROJECTS\\BACKEND\\MICROSERVICES\\E-Commerce-Microservice\\private.key}"
+    public-key:
+      path: "${JWT_PUBLIC_KEY_PATH:C:\\1WORKSPACE\\PROJECTS\\BACKEND\\MICROSERVICES\\E-Commerce-Microservice\\public.key}"
+    token-validity:
+      access-validity: "${ACCESS_TOKEN_VALIDITY_SECONDS:3600}"
+      refresh-validity: "${REFRESH_TOKEN_VALIDITY_SECONDS:1209600}"
+    cookie:
+      domain: "${DOMAIN_NAME:localhost}"
+      secure: "${SECURE_COOKIES:false}"
+      same-site: "${SAME_SITE_COOKIES:Lax}"
+
+spring:
+  cache:
+    type: redis
+  redis:
+    host: "${REDIS_HOST:localhost}"
+    port: "${REDIS_PORT:6379}"
+
+  # Service Discovery configuration
+  cloud:
+    consul:
+      discovery:
+        metadata:
+          basePath: ${app.base-url}

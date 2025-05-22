@@ -1,0 +1,11 @@
+#  APP CONFIGURATION (INTERNAL)
+app:
+  base-url: /api/v1
+
+spring:
+  # Service Discovery configuration
+  cloud:
+    consul:
+      discovery:
+        metadata:
+          basePath: /api/v1/orders;/api/v1/cart-items

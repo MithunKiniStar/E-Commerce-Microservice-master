@@ -1,0 +1,15 @@
+server:
+  port: 1000
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/rajumb0232/E-Commerce-Microservice.git
+          default-label: master
+          searchPaths:
+            - configuration
+            - configuration/user-service
+            - configuration/order-service
+            - configuration/product-service

@@ -1,0 +1,4 @@
+cache:
+  requirements:
+      - cacheName: "user-cache"
+        ttlMinutes: 10

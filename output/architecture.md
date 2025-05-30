@@ -179,7 +179,7 @@ The Input Processing data flow implements a streamlined approach to handle diver
 flowchart LR
     A[Raw Input] --> B{Input Type}
     B -->|Local| C[Directory Scanner]
-    B -->|Git| D[Repository Fetcher]
+    B -->|Git| D[Bitbucket Repository Fetcher]
     C --> E[File Filter]
     D --> E
     E --> F[Processed Files]

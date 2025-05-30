@@ -135,6 +135,9 @@ sequenceDiagram
   - Rate limiting handling
   - Error recovery
 
+ The system follows a three-layer architecture designed for efficient documentation generation. The Input Layer accepts code from either local directories or Git repositories and processes them through a unified Input Processor. The Core Processing Layer contains three main engines: the Code Analysis Engine for understanding code structure and patterns, the LLM Processing Pipeline for intelligent content analysis and abstraction, and the Documentation Generator for organizing and creating coherent documentation. Finally, the Output Layer generates both markdown content and diagrams, storing them in a documentation repository. This pipeline ensures a systematic transformation of raw code into comprehensive, well-structured documentation.
+
+
 ### 4. Documentation Generator
 ```mermaid
 graph LR

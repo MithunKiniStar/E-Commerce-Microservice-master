@@ -76,6 +76,9 @@ classDiagram
   - Access token handling
 
 ### 2. Code Analysis Engine
+
+The Code Analysis Engine forms the analytical backbone of the system, employing a sophisticated three-component architecture to comprehensively understand codebases. The FileAnalyzer serves as the primary entry point, coordinating the analysis process by examining code structure, identifying patterns, and mapping dependencies. It works in conjunction with the PatternMatcher, which leverages a comprehensive dictionary of language-specific patterns to identify architectural styles and design patterns across different programming languages. The DependencyGraph component constructs and analyzes relationship graphs between code elements, providing crucial insights into code organization and dependencies. Together, these components enable deep, language-agnostic analysis of code structure and relationships, forming the foundation for intelligent documentation generation.
+
 ```mermaid
 classDiagram
     class FileAnalyzer {

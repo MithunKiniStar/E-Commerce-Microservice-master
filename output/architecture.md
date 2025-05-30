@@ -173,9 +173,8 @@ project_docs/
 ```
 
 ## Data Flow
-The Input Processing data flow implements a streamlined approach to handle diverse code sources. Starting with Raw Input, the system first determines the Input Type, branching into two specialized processing paths: the Directory Scanner for local filesystem inputs and the Repository Fetcher for Git-based sources. Both paths converge at the File Filter stage, which applies consistent filtering rules (file types, sizes, and exclusion patterns) across all inputs. This unified filtering approach ensures that regardless of the input source, the system produces a standardized set of Processed Files ready for subsequent analysis. The design emphasizes both flexibility in input handling and consistency in output, making the system adaptable while maintaining reliable processing standards.
-
 ### 1. Input Processing
+The Input Processing data flow implements a streamlined approach to handle diverse code sources. Starting with Raw Input, the system first determines the Input Type, branching into two specialized processing paths: the Directory Scanner for local filesystem inputs and the Repository Fetcher for Git-based sources. Both paths converge at the File Filter stage, which applies consistent filtering rules (file types, sizes, and exclusion patterns) across all inputs. This unified filtering approach ensures that regardless of the input source, the system produces a standardized set of Processed Files ready for subsequent analysis. The design emphasizes both flexibility in input handling and consistency in output, making the system adaptable while maintaining reliable processing standards.
 ```mermaid
 flowchart LR
     A[Raw Input] --> B{Input Type}

@@ -186,6 +186,8 @@ flowchart LR
 ```
 
 ### 2. Analysis Pipeline
+The Analysis Pipeline implements a sophisticated sequential processing flow that progressively builds understanding of the codebase. Beginning with Processed Files from the input stage, the pipeline first performs Code Analysis to understand the basic structure and syntax. Pattern Detection then identifies common design patterns and architectural styles within the code. The Dependency Mapping stage constructs a comprehensive graph of relationships between code components. Context Generation aggregates these insights to create rich, contextual information about the codebase. Finally, LLM Processing uses this context to generate intelligent, human-readable documentation. This staged approach ensures thorough analysis while maintaining efficient processing, with each stage building upon the insights gained from previous stages.
+
 ```mermaid
 flowchart LR
     A[Processed Files] --> B[Code Analysis]

@@ -5,7 +5,7 @@
 The Tutorial Codebase Knowledge system is an advanced documentation generation platform that leverages LLMs (Large Language Models) to automatically analyze, understand, and document codebases. The system employs a modular architecture with distinct processing pipelines to generate comprehensive, maintainable documentation.
 
 ## Architecture Overview
-The system follows a three-layer architecture designed for efficient documentation generation. The Input Layer accepts code from either local directories or Git repositories and processes them through a unified Input Processor. The Core Processing Layer contains three main engines: the Code Analysis Engine for understanding code structure and patterns, the LLM Processing Pipeline for intelligent content analysis and abstraction, and the Documentation Generator for organizing and creating coherent documentation. Finally, the Output Layer generates both markdown content and diagrams, storing them in a documentation repository. This pipeline ensures a systematic transformation of raw code into comprehensive, well-structured documentation.
+The system follows a three-layer architecture designed for efficient documentation generation. The Input Layer accepts code from either local directories or Git repositories and processes them through a unified Input Processor. The Core Processing Layer contains three main engines: the Code Analysis Engine for understanding code structure and patterns, the LLM Processing Pipeline for intelligent content analysis and abstraction, and the Documentation Generator for organizing and creating coherent documentation. Finally, the Output Layer generates both markdown content and diagrams, storing them in a documentation repository, which is then stored as AI-generated documentation in the output folder of the Bitbucket repository of a particular project with an automatically updated README for easy navigation.
 
 ```mermaid
 graph TB
@@ -36,11 +36,13 @@ graph TB
     end
 
     subgraph Output Layer
-        D3 --> E1[Markdown Generator]
-        D3 --> E2[Diagram Generator]
-        E1 --> F1[Documentation Repository]
-        E2 --> F1
-    end
+    D3 --> E1[Markdown Generator]
+    D3 --> E2[Diagram Generator]
+    E1 --> F1[Documentation Repository]
+    E2 --> F1
+    F1 --> G1[Store AI Generated Docs in Output Folder of Bitbucket Repo]
+    G1 --> G2[Update Repository README]
+end
 ```
 
 ## Component Details

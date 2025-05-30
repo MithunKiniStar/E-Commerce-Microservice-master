@@ -46,6 +46,8 @@ graph TB
 ## Component Details
 
 ### 1. Input Processing Layer
+The Input Processing Layer serves as the system's entry point, providing a flexible and robust mechanism for ingesting code from multiple sources. It implements a dual-channel approach, handling both local directory scanning and Git repository processing through a unified InputProcessor interface. The layer incorporates sophisticated file filtering capabilities through the FileFilter class, which enforces configurable rules for file inclusion, exclusion, and size limitations. This ensures that only relevant code files are processed while maintaining system performance and security. The layer's modular design allows for easy extension to support additional input sources while maintaining consistent validation and preprocessing across all input channels.
+
 ```mermaid
 classDiagram
     class InputProcessor {

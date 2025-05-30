@@ -5,6 +5,7 @@
 The Tutorial Codebase Knowledge system is an advanced documentation generation platform that leverages LLMs (Large Language Models) to automatically analyze, understand, and document codebases. The system employs a modular architecture with distinct processing pipelines to generate comprehensive, maintainable documentation.
 
 ## Architecture Overview
+The system follows a three-layer architecture designed for efficient documentation generation. The Input Layer accepts code from either local directories or Git repositories and processes them through a unified Input Processor. The Core Processing Layer contains three main engines: the Code Analysis Engine for understanding code structure and patterns, the LLM Processing Pipeline for intelligent content analysis and abstraction, and the Documentation Generator for organizing and creating coherent documentation. Finally, the Output Layer generates both markdown content and diagrams, storing them in a documentation repository. This pipeline ensures a systematic transformation of raw code into comprehensive, well-structured documentation.
 
 ```mermaid
 graph TB
@@ -41,7 +42,6 @@ graph TB
         E2 --> F1
     end
 ```
-The system follows a three-layer architecture designed for efficient documentation generation. The Input Layer accepts code from either local directories or Git repositories and processes them through a unified Input Processor. The Core Processing Layer contains three main engines: the Code Analysis Engine for understanding code structure and patterns, the LLM Processing Pipeline for intelligent content analysis and abstraction, and the Documentation Generator for organizing and creating coherent documentation. Finally, the Output Layer generates both markdown content and diagrams, storing them in a documentation repository. This pipeline ensures a systematic transformation of raw code into comprehensive, well-structured documentation.
 
 ## Component Details
 
@@ -103,6 +103,7 @@ classDiagram
 - Architecture identification
 
 ### 3. LLM Processing Pipeline
+The LLM Processing Engine serves as the intelligent core of the documentation system, transforming raw code analysis into meaningful documentation. It employs a sophisticated pipeline where the Context Builder first aggregates and structures code analysis results, creating rich contextual prompts that capture the essence of the codebase. These prompts are then processed by the LLM service (supporting multiple providers like Gemini, OpenAI, and Anthropic) which generates human-readable, technically accurate documentation. The engine includes built-in mechanisms for caching responses, handling rate limits, and recovering from errors, ensuring reliable and efficient documentation
 ```mermaid
 sequenceDiagram
     participant CA as Code Analyzer
@@ -135,7 +136,7 @@ sequenceDiagram
   - Rate limiting handling
   - Error recovery
 
- The system follows a three-layer architecture designed for efficient documentation generation. The Input Layer accepts code from either local directories or Git repositories and processes them through a unified Input Processor. The Core Processing Layer contains three main engines: the Code Analysis Engine for understanding code structure and patterns, the LLM Processing Pipeline for intelligent content analysis and abstraction, and the Documentation Generator for organizing and creating coherent documentation. Finally, the Output Layer generates both markdown content and diagrams, storing them in a documentation repository. This pipeline ensures a systematic transformation of raw code into comprehensive, well-structured documentation.
+ 
 
 
 ### 4. Documentation Generator

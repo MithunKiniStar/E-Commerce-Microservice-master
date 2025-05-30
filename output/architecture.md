@@ -139,6 +139,8 @@ sequenceDiagram
 
 
 ### 4. Documentation Generator
+The Documentation Generator is the final processing stage that transforms the LLM-generated content into well-structured, navigable documentation. It begins with Content Organization, which logically arranges the generated content based on relationships and importance. The system then applies appropriate templates through Template Selection, ensuring consistent formatting and presentation. During Content Generation, it assembles the documentation while maintaining technical accuracy and readability. The Cross-Reference Creation phase establishes intelligent links between related sections, enhancing navigation and understanding. Finally, Format Conversion transforms the content into various output formats, supporting both markdown and diagram generation for comprehensive documentation delivery.
+
 ```mermaid
 graph LR
     A[Content Organization] --> B[Template Selection]

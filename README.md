@@ -24,7 +24,7 @@ The application is composed of the following microservices:
 ## Chapters
 
 1. [Centralized Configuration Management
-](01_centralized_configuration_management_.md)
+](output/01_centralized_configuration_management_.md)
 2. [API Gateway & Dynamic Routing
 ](02_api_gateway___dynamic_routing_.md)
 3. [Microservice Core Structure & Lifecycle

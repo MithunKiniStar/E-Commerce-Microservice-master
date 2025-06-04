@@ -26,17 +26,17 @@ The application is composed of the following microservices:
 1. [Centralized Configuration Management
 ](output/01_centralized_configuration_management_.md)
 2. [API Gateway & Dynamic Routing
-](02_api_gateway___dynamic_routing_.md)
+](output/02_api_gateway___dynamic_routing_.md)
 3. [Microservice Core Structure & Lifecycle
-](03_microservice_core_structure___lifecycle_.md)
+](output/03_microservice_core_structure___lifecycle_.md)
 4. [JWT-Based Security & Token Validation
-](04_jwt_based_security___token_validation_.md)
+](output/04_jwt_based_security___token_validation_.md)
 5. [Domain Entities & Repository Pattern
-](05_domain_entities___repository_pattern_.md)
+](output/05_domain_entities___repository_pattern_.md)
 6. [Data Transfer Objects (DTOs) & Mappers
-](06_data_transfer_objects__dtos____mappers_.md)
+](output/06_data_transfer_objects__dtos____mappers_.md)
 7. [Inter-Service Communication (Feign Clients)
-](07_inter_service_communication__feign_clients__.md)
+](output/07_inter_service_communication__feign_clients__.md)
 
 
 ## Technologies Used

@@ -136,4 +136,6 @@ graph TB
    - Log errors and notifications
    - Handle partial documentation updates
 
+This automated documentation generation system is designed to maintain up-to-date documentation for code repositories through an event-driven approach. When code changes are merged into Develop or Release branches, a GitHub webhook triggers the documentation pipeline. The system leverages Azure OpenAI's LLM capabilities through CDAO Platform to generate comprehensive documentation.
 
+The workflow begins with the Python script scanning repository files upon webhook trigger. These files are analyzed and sent to the CDAO Platform's Documentation Processing Service, which interfaces with Azure OpenAI to generate intelligent code summaries using LLM APIs. The generated documentation is then processed, formatted into markdown files, and organized in the repository's docs folder with appropriate references in the README.md.

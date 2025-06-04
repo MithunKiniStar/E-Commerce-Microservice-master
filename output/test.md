@@ -10,13 +10,20 @@ graph TB
 
     subgraph "Documentation Generator"
         T1 --> P1[Python Script]
-        P1 --> |Authenticate| M1[Microsoft OpenAI]
-        M1 --> |via| C1[CDAO Platform]
-        
         P1 --> |Scan| F1[Repository Files]
         
+        subgraph "CDAO Platform"
+            C1[Documentation Processing Service]
+        end
+        
+        AO[Azure OpenAI]
+        
+        F1 --> |Send Code Analysis| C1
+        C1 --> |Request Documentation| AO
+        AO --> |Return Documentation| C1
+        C1 --> |Process| D1[Documentation Content]
+        
         subgraph "Documentation Processing"
-            F1 --> D1[Generate Documentation]
             D1 --> D2[Create Markdown Files]
             D2 --> D3[Update README.md]
         end
@@ -29,8 +36,8 @@ graph TB
     end
 
     style T1 fill:#f96,stroke:#333
-    style M1 fill:#58a,stroke:#333
     style C1 fill:#7c7,stroke:#333
+    style AO fill:#58a,stroke:#333
     style O1 fill:#fc9,stroke:#333
     style O2 fill:#fc9,stroke:#333
 ```
@@ -44,17 +51,23 @@ graph TB
 2. **Documentation Generator**
    - **Python Script**
      - Triggered by GitHub webhook
-     - Authenticates with Microsoft OpenAI through CDAO platform
-     - Scans repository files
-     - Orchestrates documentation generation process
+     - Scans repository files for analysis
+     - Sends code analysis to CDAO Platform
+     - Processes generated documentation
 
-   - **CDAO Platform Integration**
-     - Provides secure access to Microsoft OpenAI
-     - Handles API authentication and rate limiting
+   - **CDAO Platform**
+     - Processes code analysis
+     - Interfaces with Azure OpenAI for documentation generation
+     - Handles secure API access and rate limiting
+     - Manages documentation workflow
+
+   - **Azure OpenAI**
+     - External AI service
+     - Generates comprehensive documentation based on code analysis
+     - Accessed through CDAO Platform
 
 3. **Documentation Processing**
-   - Analyzes codebase structure
-   - Generates comprehensive documentation
+   - Takes AI-generated documentation content
    - Creates organized markdown files
    - Updates README.md with documentation links
 

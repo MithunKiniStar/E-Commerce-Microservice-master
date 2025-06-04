@@ -1,23 +1,17 @@
 # Automated Documentation Generation Architecture
 
 ```mermaid
-graph TB
+graph LR
     subgraph "GitHub Repository"
-        B1[Develop Branch] --> |Merge| T1
-        B2[Release Branch] --> |Merge| T1
-        T1[GitHub Webhook Trigger]
+        B1[Develop Branch] & B2[Release Branch] --> T1[GitHub Webhook Trigger]
     end
 
     subgraph "Documentation Generator"
         T1 --> P1[Python Script]
         P1 --> |Scan| F1[Repository Files]
         F1 --> |Send Code Analysis| C1
-        
         D1[Documentation Content] --> D2[Create Markdown Files]
-        
-        subgraph "Documentation Processing"
-            D2 --> D3[Update README.md]
-        end
+        D2 --> D3[Update README.md]
     end
 
     subgraph "CDAO Platform"
@@ -28,12 +22,9 @@ graph TB
     end
 
     C1 --> |Return| D1
-
-    subgraph "Output"
-        D2 --> O1[/docs folder/]
-        D3 --> O2[README.md]
-        O1 --> |Referenced in| O2
-    end
+    D2 --> O1[/docs folder/]
+    D3 --> O2[README.md]
+    O1 --> |Referenced in| O2
 
     style T1 fill:#f96,stroke:#333
     style C1 fill:#7c7,stroke:#333

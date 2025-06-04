@@ -23,8 +23,8 @@ graph TB
     subgraph "CDAO Platform"
         C1[Documentation Processing Service]
         AO[Azure OpenAI]
-        C1 --> |Request Documentation| AO
-        AO --> |Return Documentation| C1
+        C1 --> |Leverage OpenAI LLM APIs for summarization| AO
+        AO --> |Return Generated Summary| C1
     end
 
     C1 --> |Return| D1
@@ -64,12 +64,13 @@ graph TB
    - **Documentation Processing Service**
      - Processes code analysis
      - Manages documentation workflow
+     - Leverages Azure OpenAI APIs for code summarization
      - Handles secure API access and rate limiting
    
    - **Azure OpenAI**
-     - Integrated AI service
+     - Provides LLM APIs for code summarization
      - Generates comprehensive documentation based on code analysis
-     - Accessed through Documentation Processing Service
+     - Integrated through Documentation Processing Service
 
 4. **Output Management**
    - Stores generated documentation in /docs folder

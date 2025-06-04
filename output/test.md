@@ -11,23 +11,23 @@ graph TB
     subgraph "Documentation Generator"
         T1 --> P1[Python Script]
         P1 --> |Scan| F1[Repository Files]
-        
-        subgraph "CDAO Platform"
-            C1[Documentation Processing Service]
-        end
-        
-        AO[Azure OpenAI]
-        
         F1 --> |Send Code Analysis| C1
-        C1 --> |Request Documentation| AO
-        AO --> |Return Documentation| C1
-        C1 --> |Process| D1[Documentation Content]
+        
+        D1[Documentation Content] --> D2[Create Markdown Files]
         
         subgraph "Documentation Processing"
-            D1 --> D2[Create Markdown Files]
             D2 --> D3[Update README.md]
         end
     end
+
+    subgraph "CDAO Platform"
+        C1[Documentation Processing Service]
+        AO[Azure OpenAI]
+        C1 --> |Request Documentation| AO
+        AO --> |Return Documentation| C1
+    end
+
+    C1 --> |Return| D1
 
     subgraph "Output"
         D2 --> O1[/docs folder/]
@@ -53,23 +53,23 @@ graph TB
      - Triggered by GitHub webhook
      - Scans repository files for analysis
      - Sends code analysis to CDAO Platform
-     - Processes generated documentation
+     - Processes returned documentation
 
-   - **CDAO Platform**
+   - **Documentation Processing**
+     - Takes AI-generated documentation content
+     - Creates organized markdown files
+     - Updates README.md with documentation links
+
+3. **CDAO Platform**
+   - **Documentation Processing Service**
      - Processes code analysis
-     - Interfaces with Azure OpenAI for documentation generation
-     - Handles secure API access and rate limiting
      - Manages documentation workflow
-
+     - Handles secure API access and rate limiting
+   
    - **Azure OpenAI**
-     - External AI service
+     - Integrated AI service
      - Generates comprehensive documentation based on code analysis
-     - Accessed through CDAO Platform
-
-3. **Documentation Processing**
-   - Takes AI-generated documentation content
-   - Creates organized markdown files
-   - Updates README.md with documentation links
+     - Accessed through Documentation Processing Service
 
 4. **Output Management**
    - Stores generated documentation in /docs folder

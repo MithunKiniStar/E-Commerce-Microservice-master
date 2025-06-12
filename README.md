@@ -22,7 +22,7 @@ The application is composed of the following microservices:
    <br>Allows users to rate and review products. (working)
 
 
-   ```mermaid
+```mermaid
 flowchart TD
     A0["Microservice Core Structure & Lifecycle
 "]
@@ -45,6 +45,7 @@ flowchart TD
     A0 -- "Uses DTOs/Mappers" --> A5
     A0 -- "Calls via Feign" --> A6
 ```
+
 
 ## Chapters
 

@@ -1,11 +1,11 @@
-Why This Solution Is Useful
+# Why This Solution Is Useful
 Our organization manages complex code repositories with multiple microservices, which often overwhelm new developers joining a project. Without comprehensive documentation, these developers rely heavily on peers and seniors for code assistance, leading to delays, knowledge silos, and inefficiencies. As our codebase grows with each sprint, manually updating documentation becomes a tedious, error-prone task that is frequently deprioritized. This creates a cycle of outdated or incomplete documentation, further complicating onboarding and knowledge sharing.
 
 Imagine a solution where an AI-powered LLM tool automatically reads and analyzes our Bitbucket / GitHub repositories, generating clear, beginner-friendly tutorials and documentation in real time. This tool, inspired by the Pocket Flow Project, would crawl our repositories, identify core abstractions, and produce structured Markdown tutorials complete with explanations, analogies, and visualizations like Mermaid flowcharts. These tutorials would not only accelerate onboarding new developers but also serve as a living knowledge base, enabling developers to navigate complex codebases with ease.
 
 Moreover, integrating our tool across all projects ensures that each project benefits from standardized and detailed documentation. This comprehensive approach empowers developers to find solutions to common problems without reinventing the wheel. For instance, if a developer needs to implement Timeseries Elasticsearch, they can instantly access relevant documentation and code references from other projects within the organization. Instead of posting questions on platforms like StackOverflow or waiting for responses, developers will have immediate access to a centralized, AI-generated knowledge base enriched with context-specific code snippets and best practices. Looking ahead, we envision expanding this system to include a centralized code buddy, leveraging these detailed documentations as a source to answer any code-based implementation queries within our organization. This future capability will further reduce redundant efforts, foster cross-team collaboration, and accelerate problem-solving.
 
-Additional benefits include:
+## Additional benefits include:
 
 Consistency Across Teams: Standardized documentation ensures all teams follow the same conventions, improving code quality and maintainability.
 Knowledge Retention: As team members leave or transition, the documentation preserves institutional knowledge, reducing the impact of turnover.
@@ -14,7 +14,7 @@ Scalability: The solution scales effortlessly across repositories, supporting ou
 
 By leveraging Bitbucket / GitHub’s Webhook, API and a lightweight LLM framework, this tool integrates seamlessly into our existing workflows, transforming how we document, share, and leverage our codebases.
 
- Idea
+# Idea
 We propose developing an AI-powered tool that automatically analyzes Bitbucket / GitHub repositories and generates beginner-friendly tutorials and documentation for complex codebases. Adapted from the Pocket Flow Project, this solution will crawl Bitbucket / GitHub repositories, build a knowledge base, identify up to 10 core abstractions, and transform them into digestible tutorials with clear explanations, analogies, and visualizations. Unlike the original GitHub-focused project, our tool will integrate with Bitbucket / GitHub's API and authentication, aligning with our organization’s infrastructure and trained to generate documents as per firm's documentation standards. The doc tutorials will accelerate the developer onboarding, reduce the learning curve, improve codebase maintainability, and enable cross-project knowledge sharing.
 
 Kindly Note: We have successfully completed the proof of concept (POC) and are currently in the final stages of testing with multiple codebases. Our goal is to enhance the tool's robustness and configurability, ensuring seamless integration with any project within the firm.

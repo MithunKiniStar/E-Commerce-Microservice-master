@@ -21,6 +21,31 @@ The application is composed of the following microservices:
 7. **Rating and Review Service**:
    <br>Allows users to rate and review products. (working)
 
+
+   ```mermaid
+flowchart TD
+    A0["Microservice Core Structure & Lifecycle
+"]
+    A1["API Gateway & Dynamic Routing
+"]
+    A2["Centralized Configuration Management
+"]
+    A3["JWT-Based Security & Token Validation
+"]
+    A4["Domain Entities & Repository Pattern
+"]
+    A5["Data Transfer Objects (DTOs) & Mappers
+"]
+    A6["Inter-Service Communication (Feign Clients)
+"]
+    A0 -- "Fetches config from" --> A2
+    A1 -- "Routes requests to" --> A0
+    A0 -- "Uses JWT security" --> A3
+    A0 -- "Uses repositories" --> A4
+    A0 -- "Uses DTOs/Mappers" --> A5
+    A0 -- "Calls via Feign" --> A6
+```
+
 ## Chapters
 
 1. [Centralized Configuration Management

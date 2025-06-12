@@ -8,6 +8,31 @@ Security is handled using **JSON Web Tokens (JWTs)** for authenticating users an
 Services communicate with each other using declarative HTTP clients like *OpenFeign*, for example, the Order service fetching product details from the Product service.
 
 
+```mermaid
+flowchart TD
+    A0["Microservice Core Structure & Lifecycle
+"]
+    A1["API Gateway & Dynamic Routing
+"]
+    A2["Centralized Configuration Management
+"]
+    A3["JWT-Based Security & Token Validation
+"]
+    A4["Domain Entities & Repository Pattern
+"]
+    A5["Data Transfer Objects (DTOs) & Mappers
+"]
+    A6["Inter-Service Communication (Feign Clients)
+"]
+    A0 -- "Fetches config from" --> A2
+    A1 -- "Routes requests to" --> A0
+    A0 -- "Uses JWT security" --> A3
+    A0 -- "Uses repositories" --> A4
+    A0 -- "Uses DTOs/Mappers" --> A5
+    A0 -- "Calls via Feign" --> A6
+```
+
+
 
 
 ## Chapters

@@ -344,6 +344,15 @@ graph TB
     end
 ```
 
+## Deployment Architecture
+The Codebase Document Generator is an AI-powered tool seamlessly integrated into the development workflow, designed to automatically update documentation upon the merging of a Pull Request (PR) in Develop or Release branches within Bitbucket or GitHub. When a PR is merged, it triggers a Webhook, which acts as a notification mechanism to initiate the documentation process. The Webhook listener, serving as a bridge between the code repository and the documentation generator, uses the Bitbucket/GitHub API to gather detailed information about the merged PR, including specific codebase changes.
+
+Once the PR details are retrieved, the documentation and Mermaid diagram generator analyzes the code, identifying key abstractions and relationships. Leveraging AI, it comprehends complex structures and generates beginner-friendly tutorials and documentation. This includes structured Markdown files and visualizations, such as Mermaid flowcharts, to enhance understanding and facilitate onboarding.
+
+The generated documentation is then used to update the Readme.md file and other relevant documentation within the repository. These updates are committed back to the repository in a dedicated docs folder, ensuring that the latest changes are documented and accessible to all developers. The repository, now enriched with comprehensive documentation, continues through the CI/CD pipeline, integrating the documentation process into the development lifecycle. This ensures that documentation remains current with the latest code changes, ultimately concluding at the end of the CI pipeline with a codebase that is both ready for deployment and equipped with up-to-date, accessible documentation.
+
+
+
 ## Integration Points
 
 ### 1. Version Control
